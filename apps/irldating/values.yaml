@@ -1,0 +1,19 @@
+replicaCount: 2
+
+image:
+  repository: akssprintacr58778f.azurecr.io/nginx
+  tag: "alpine"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8090
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 64Mi
+  requests:
+    cpu: 50m
+    memory: 32Mi

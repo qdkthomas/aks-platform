@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-static
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="da">
+    <head>
+      <meta charset="UTF-8">
+      <title>IRL Dating</title>
+      <style>
+        body { font-family: system-ui; max-width: 600px; margin: 80px auto; text-align: center; background: #1a1a2e; color: #e0e0e0; }
+        h1 { color: #e94560; font-size: 2.5rem; }
+        p { font-size: 1.2rem; line-height: 1.6; color: #a0a0b0; }
+        .badge { display: inline-block; background: #0f3460; padding: 8px 16px; border-radius: 20px; margin: 4px; font-size: 0.9rem; }
+      </style>
+    </head>
+    <body>
+      <h1>IRL Dating</h1>
+      <p>Events der bringer mennesker sammen i virkeligheden</p>
+      <div>
+        <span class="badge">Deployed on AKS</span>
+        <span class="badge">Helm Chart v0.1.0</span>
+        <span class="badge">Kubernetes {{ "{{" }} .Release.Name {{ "}}" }}</span>
+      </div>
+      <p style="margin-top: 40px; font-size: 0.9rem;">irldating.dk — running on Azure Kubernetes Service</p>
+    </body>
+    </html>
